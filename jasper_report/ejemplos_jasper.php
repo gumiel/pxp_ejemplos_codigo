@@ -5,17 +5,11 @@
  * Ejemplo de los archivos para importar
  * 
 **/
-?>
-<?php require_once(dirname(__DIR__)."../../pxp/lib/configPhpJasperReports.php"); ?>
-<?php require_once(dirname(__DIR__)."../../pxp/lib/libs_backend/PhpJasperReports/PhpJasperReport.php"); ?>
+require_once(dirname(__DIR__)."../../pxp/lib/configPhpJasperReports.php");
+require_once(dirname(__DIR__)."../../pxp/lib/libs_backend/PhpJasperReports/PhpJasperReport.php"); 
 
 
 
-
-
-
-
-<?php 
 
 
 
@@ -49,8 +43,13 @@ function reporteJasperPorCC($idGestion, $idPeriodo)
     
 
     $file = $jasper->run($fileJrxml, //Archivo jasper
-                        ['id_gestion'=>$idGestion, 'id_periodo'=>$idPeriodo, 'urlImagen'=>dirname(__DIR__).'/jrxmls/images/ende.jpg'], // Datos para la el reporte jasper                            
-                        ['xlsx']); // tipos de formato que sacara el jasper
+                        [   
+                            'id_gestion'=>$idGestion, 
+                            'id_periodo'=>$idPeriodo, 
+                            'urlImagen'=>dirname(__DIR__).'/jrxmls/images/ende.jpg'
+                        ], // Datos para la el reporte jasper                            
+                        ['xlsx'], // tipos de formato que sacara el jasper
+                        ); 
     $base64 = $jasper->convertBase64File($file);
     unlink($file);
     // $jasper->forceDowload($file,'Reporte_Ejecucion_presupuestaria');

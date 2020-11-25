@@ -110,6 +110,7 @@ setTimeout(function(){
 **/
 Atributos:[
 	onButtonNew: function(){
+
 	      this.swButton = 'NEW';
 	      this.sw_valores = 'si';
 	      this.Cmp.id_grupo.enable();
@@ -118,15 +119,13 @@ Atributos:[
 
 	      Phx.vista.ActivoMaterialBajoResponsabilidad.superclass.onButtonNew.call(this); 
 	      this.Cmp.id_grupo.reset(); 		
-	      this.Cmp.id_grupo.modificado = true;
-	      
-	      //alert('New');
+	      this.Cmp.id_grupo.modificado = true;	      
 	    
 	},
 	onButtonEdit: function(){
-		//this.mostrarComponentesAlmacen();
+
 		this.swButton = 'EDIT';
-		// this.primeraVez = true;
+
 		// var rec = this.sm.getSelected().data;
 		var tipo = this.sm.getSelected().data.tipo_calculo;
 		

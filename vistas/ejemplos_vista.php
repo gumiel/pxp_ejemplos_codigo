@@ -143,7 +143,65 @@ Atributos:[
 ];
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * 
+ * Ejemplo de un campo del tipo TEXTO
+ * 
+ */
+{
+	config:{
+		name: 'descripcion', 							// Indentificador Unico para el componente
+		// inputType:'hidden',							// Campo opcional para indicar si es un campo oculto pero operativo
+		emptyText: 'Ingresa la descripcion',			// Es como el placeholder de HTML
+		fieldLabel: 'Decripción del Activo/Material', 	// Nombre del Label del campo
+		labelStyle: 'width:150px; margin: 5;',  		// Estilo para agregar ancho al label
+		allowBlank: false, 								// Atributo para indicar si es obligatorio o no
+		anchor: '80%', 									// Tamaño porcentual del input con relacion a su contenedor
+		gwidth: 250, 									// Tamaño de la columna en la grilla
+		maxLength:250,             						// Cantidad maxima de caracteres en el campo
+		renderer : function(value, p, record) {
+			var res1 = value; 							// Devuelve el valor del campo Ejm. "Central Hidroelectrica"
+			var res2 = record; 							// Devuelve un Objeto con { data, id, json, store} 
+														// donde data estan los datos de la fila. Ejm record.data['desc_centro_costo']
+														// Admite html
+			// return String.format('{0}', record.data['descripcion']);
+			return res1;
+		}
+	},
+	type:'TextField', 								   	// Tipo de campo
+	filters:{pfiltro:'act.descripcion',type:'string'}, 	// Filtro para la busqueda
+	bottom_filter: true, 							   	// Propiedad que habilita la busqueda segun la propiedad filters
+	id_grupo:1,
+	form:true, 										   	// Indica si es visible en el formulario
+	grid:true,                                         	// Indica si es visible en la grilla
+},
+
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

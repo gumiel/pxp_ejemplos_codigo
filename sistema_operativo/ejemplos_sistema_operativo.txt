@@ -1,0 +1,82 @@
+/*
+* 
+*/
+CREATE EXTENSION dblink; 
+CREATE EXTENSION dblink SCHEMA extensions; 
+
+
+
+/*
+*Ejemplo del archivo pg_hba.conf de postgres
+*
+*/
+local   all             postgres,dbkerp_conexion,dbdesarrollo_conexion             trust
+local   all             all                                     md5
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+host    all             all             192.168.0.0/16          md5
+# IPv6 local connections:
+host    all             all             ::1/128                 trust
+# Allow replication connections from localhost, by a user with the
+# replication privilege.
+local   replication     all                                     trust
+host    replication     all             127.0.0.1/32            trust
+host    replication     all             ::1/128                 trust
+
+
+
+/*
+* Para buscar y desintalar en centos
+* link: https://kb.objectrocket.com/postgresql/how-to-completely-uninstall-postgresql-757
+*       https://josehuaman.com/instalacion-y-configuracion-de-postgresql-11-1-en-centos-7/
+*/
+
+> rpm -Uvh https://yum.postgresql.org/11/redhat/rhel-7-x86_64/pgdg-centos11-11-2.noarch.rpm 
+> sudo yum install postgresql11
+> sudo yum install postgresql11-server
+> sudo /usr/pgsql-11/bin/postgresql-11-setup initdb
+> sudo systemctl start postgresql-11.service 
+> sudo systemctl enable postgresql-11.service 
+> sudo systemctl status postgresql-11.service 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+* Actualizar postgres con otro servidor 
+* link: https://servernotfound.es/como-instalar-postgresql-11-en-centos-7-rhel-7/
+*/
+
+
+yum list installed | grep postgres
+yum remove {POSTGRESS-PACKAGE NAME}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+* Habilitar dblink para el postgres
+* link: https://stackoverflow.com/questions/5075193/installing-dblink-for-postgres-9/11255944
+*/
+yum install postgres*contrib
+CREATE EXTENSION dblink;

@@ -57,8 +57,8 @@ Atributos:[
  * Metodos para Visualizar PRELOADER en el pxp
  * 
 **/
-Phx.CP.loadingHide();
 Phx.CP.loadingShow();
+Phx.CP.loadingHide();
 
 
 

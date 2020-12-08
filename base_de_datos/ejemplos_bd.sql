@@ -1,3 +1,10 @@
+/**
+ * 
+ * Backup de bd
+ * 
+ */
+pg_dump -p 5432 -U postgres -F c -b -v -f "/home/sisjobpreproduccion_423423.dump" dbkerp
+
 
 
 /**

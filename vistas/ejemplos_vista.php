@@ -188,6 +188,17 @@ Atributos:[
 	grid:true,                                         	// Indica si es visible en la grilla
 },
 
+
+
+/**
+ * Tipos de datos para las columnas
+ */
+fields: [
+		{name:'id_unidad', type: 'numeric'},
+		{name:'estado_reg', type: 'string'},
+		{name:'fecha_reg', type: 'date',dateFormat:'Y-m-d H:i:s.u'},
+		]
+
 </script>
 
 
